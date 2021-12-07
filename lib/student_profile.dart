@@ -108,16 +108,16 @@ class StudentProfile extends StatelessWidget{
           ListTile(
           leading: const Icon(Icons.attach_email_rounded,color: Colors.purpleAccent),
           title: const Text("Micheal Stoughton"),
-          subtitle: Text("mike@gmail.com"),
-          trailing: Text(isNss ? 'yes' : 'no'),
+          subtitle: const Text("mike@gmail.com"),
+          trailing: Text(isNss ? 'Yes' : 'No'),
         ),
        const Divider(), 
 
          ListTile(
           leading: const Icon(Icons.alternate_email_rounded,color: Colors.greenAccent),
-          title: const Text("Micheal Stoughton"),
-          subtitle: Text("mike@gmail.com"),
-          trailing: Text(isNss ? 'yes' : 'no'),
+          title: const Text("Perimac Codex"),
+          subtitle: const Text("perimac03@gmail.com"),
+          trailing: Text(isNss ? 'Yes' : 'No'),
         ),
       ],
     );

@@ -1,16 +1,15 @@
 class Student{
-  String studentName='';
-  String studentAge='';
-  String studentId='';
-  String studentCourse = '';
+  String studentName='Unknown';
+  String studentAge='0';
+  String studentId='null';
+  String studentCourse = 'null';
   bool isNSS=false;
-  String studentLevel='';
-  String studentEmail='';
+  String studentLevel='null';
+  String studentEmail='null';
 
   set setStudentEmail(String newEmail){ 
     studentEmail  = newEmail;
   }
-  
   
 get getStudentEmail{
   return studentEmail;
