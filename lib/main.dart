@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.robotoTextTheme()
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
