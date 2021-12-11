@@ -6,12 +6,14 @@ class StudentProfile extends StatelessWidget{
     final String studentCourse;
     final String studentEmail;
     final String studentLevel;
-    final String studentAge;
+    final String studentAvatar;
+    final int studentAge;
     final String studentId;
     final bool isNss;
 
     const StudentProfile({Key? key,
     required this.studentName,
+    required this.studentAvatar,
     required this.studentCourse,
     required this.studentEmail,
     required this.studentLevel,
@@ -42,8 +44,8 @@ class StudentProfile extends StatelessWidget{
               crossAxisAlignment: CrossAxisAlignment.center,
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-             const CircleAvatar(
-                backgroundImage: AssetImage("drawable/me.jpg"),
+              CircleAvatar(
+                backgroundImage: AssetImage(studentAvatar),
                 radius: 50,
               ),
                Padding(
@@ -80,7 +82,7 @@ class StudentProfile extends StatelessWidget{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Age ",style: TextStyle(color: Colors.white70,fontWeight: FontWeight.bold,)),
-                      Text(studentAge,style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18)),
+                      Text(studentAge.toString(),style:  const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18)),
                       
                       const VerticalDivider(
                         color: Colors.white70,

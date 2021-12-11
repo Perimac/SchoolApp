@@ -4,8 +4,10 @@ import 'package:schoolapp/student_profile.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
-   HomePage({Key? key}) : super(key: key);
-    Student profile = Student();
+    // final Student profile;
+    final StudentData studentList;
+   HomePage({Key? key, required this.studentList}) : super(key: key);
+    // Student profile = Student();
 
 
   @override
@@ -25,7 +27,8 @@ class _HomePageState extends State<HomePage> {
   var emailController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Student studentclass = widget.profile;
+  // Student studentclass = widget.profile;
+  StudentData data = widget.studentList;
   bool isNssChecked = false;
 
     return Scaffold(
@@ -34,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       elevation: 0.0,
       title: const Text('Profile',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize:22,)),
       centerTitle: true,
-      leading: const Icon(Icons.arrow_back,color: Colors.white),
+      // leading: const Icon(Icons.arrow_back,color: Colors.white),
       actions: const[
          IconButton(onPressed: null, icon: Icon(Icons.settings,color: Colors.white,))],),
 
@@ -129,13 +132,12 @@ class _HomePageState extends State<HomePage> {
                       }
                     ),
 
-                    const SizedBox(height: 15,),
                     StatefulBuilder(
                       builder:(BuildContext context,StateSetter setState){
                         return CheckboxListTile(
-                         title: const Text("Are you an NSS?"),
+                         title: const Text("Are you NSS?"),
                          checkColor: Colors.white,
-                          value: isNssChecked, 
+                          value: isNssChecked,
                           onChanged: (bool? value) { 
                             setState((){
                               isNssChecked = value!;
@@ -152,13 +154,13 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                            setState(() {
-                              studentclass.setStudentName = nameController.text;
-                              studentclass.setStudentId = idController.text;
-                              studentclass.studentAge = ageController.text;
-                              studentclass.setStudentCourse = titleController.text;
-                              studentclass.setStudentLevel = levelController.text;
-                              studentclass.setStudentEmail = emailController.text;
-                              studentclass.setIsNss = isNssChecked;
+                              // studentclass.setStudentName = nameController.text;
+                              // studentclass.setStudentId = idController.text;
+                              // studentclass.setstudentAge = int.parse(ageController.text);
+                              // studentclass.setStudentCourse = titleController.text;
+                              // studentclass.setStudentLevel = levelController.text;
+                              // studentclass.setStudentEmail = emailController.text;
+                              // studentclass.setIsNss = isNssChecked;
                            });
                         }
                       },
@@ -180,13 +182,21 @@ class _HomePageState extends State<HomePage> {
       child: const Icon(Icons.edit,color: Colors.white),),
     
     body: StudentProfile(
-      studentName: studentclass.getStudentName,
-      studentCourse: studentclass.getStudentCourse,
-      studentEmail: studentclass.getStudentEmail,
-      studentLevel: studentclass.getLevel,
-      studentAge: studentclass.getStudentAge,
-      studentId: studentclass.getStudentId,
-      isNss: studentclass.getIsNss,
+      studentName: data.std_name,
+      studentCourse: data.std_course,
+      studentEmail: data.std_email,
+      studentLevel: data.std_level,
+      studentAge: data.std_age,
+      studentAvatar: data.std_avatar,
+      studentId: data.std_id,
+      isNss: data.std_isNss,
+      // studentName: studentclass.getStudentName,
+      // studentCourse: studentclass.getStudentCourse,
+      // studentEmail: studentclass.getStudentEmail,
+      // studentLevel: studentclass.getLevel,
+      // studentAge: studentclass.getStudentAge,
+      // studentId: studentclass.getStudentId,
+      // isNss: studentclass.getIsNss,
     ),
     );
   }
